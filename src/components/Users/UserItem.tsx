@@ -19,7 +19,7 @@ interface Props {
             <h5 className="card-title">{user.name}</h5>
             <p className="card-text small">{user.email}</p>
             <p className="card-text">{user.category}</p>
-          </div>
+         </div>
         </div>
       </div>
     </div>
