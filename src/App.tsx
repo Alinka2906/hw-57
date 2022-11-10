@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import UsersForm from "./components/UsersForm/UsersForm";
+import Users from "./components/Users/Users";
+import type {Types} from "./types";
 
 function App() {
+  const [users, setUsers] = useState<Types[]>([]);
+
+  const addUser = (newUser: Types) => {
+    setUsers(prev => [...prev, newUser]);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container text-center mt-3">
+        <div className="row">
+          <div className="col">
+            <UsersForm onSubmit={addUser}/>
+          </div>
+          <div className="col">
+            <Users users={users}/>
+          </div>
+        </div>
+        </div>
     </div>
   );
 }
