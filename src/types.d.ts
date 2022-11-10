@@ -4,4 +4,5 @@ export interface Types {
   email: string;
   isDone?: boolean;
   category: string;
+  image?: string;
 }

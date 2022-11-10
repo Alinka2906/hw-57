@@ -6,15 +6,14 @@ interface Props {
 }
 
  const UserItem: React.FC<Props> = ({user}) => {
-   const name = user.name;
-   const email = user.email;
-   const category = user.category;
+   const imageUrl = 'https://png.pngitem.com/pimgs/s/80-800055_clipart-users-icon-hd-png-download.png'
 
 
 
   return (
     <div className="card mb-2">
       <div className="row no-gutters">
+        <div className="col-sm-4 rounded-start"><img className="w-50 mt-4" src={imageUrl}/></div>
         <div className="col-sm-8">
           <div className="card-body">
             <h5 className="card-title">{user.name}</h5>

@@ -23,6 +23,11 @@ const onFormSubmit = (e: React.FormEvent) => {
   })
 };
 
+  const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const {name, checked} = e.target
+    setUsers(prev => ({...prev, [name]: checked}));
+  };
+
   return (
     <form onSubmit={onFormSubmit}>
       <h4> Add new user</h4>
@@ -57,8 +62,8 @@ const onFormSubmit = (e: React.FormEvent) => {
               name="isDone"
               type="checkbox"
               checked={users.isDone}
-              //onChange={onCheckboxChange}
-            /> Yes/No</p></label>
+              onChange={onCheckboxChange}
+            /> Active</p></label>
         <label>
           <select
             id='category'
@@ -66,6 +71,7 @@ const onFormSubmit = (e: React.FormEvent) => {
             className='form-control ms-5'
             value={users.category}
             onChange={onUsersChange}
+            required
           >
             <option disabled value=''>Select category</option>
             <option>User</option>
@@ -75,7 +81,7 @@ const onFormSubmit = (e: React.FormEvent) => {
           </label>
       </div>
 
-      <button type="submit" className="btn btn-primary mt-4">Create</button>
+      <button type="submit" className="btn btn-primary mt-4">Create user</button>
     </form>
   );
 };
